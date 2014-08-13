@@ -25,4 +25,10 @@ class Cd
 		self.all.each { |cd| cd.artist == artist_name ? albums << cd.album : '***ARTIST NOT FOUND***' }
 		albums
 	end
+
+	def self.search_by_album(album_name)
+		artists = []
+		self.all.each { |cd| cd.album == album_name ? artists << cd.artist : '***ALBUM NOT FOUND***' }
+		artists
+	end
 end

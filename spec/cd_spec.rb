@@ -32,4 +32,14 @@ describe Cd do
       test_cd_three.save
       Cd.search_by_artist('Kid Rock').should eq ['Devil Without a Cause', 'The History of Rock']
     end
+
+   	it 'returns albums by artist' do
+      test_cd = Cd.new 'Kala', 'M.I.A.'
+      test_cd.save
+      test_cd_two = Cd.new 'Watch the Throne', 'Kanye West'
+      test_cd_two.save
+      test_cd_three = Cd.new 'Watch the Throne', 'Jay-Z'
+      test_cd_three.save
+      Cd.search_by_album('Watch the Throne').should eq ['Kanye West', 'Jay-Z']
+    end
 end
