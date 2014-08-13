@@ -19,4 +19,10 @@ class Cd
 	def self.clear
 		@@all_cds = []
 	end
+
+	def self.search_by_artist(artist_name)
+		albums = []
+		self.all.each { |cd| cd.artist == artist_name ? albums << cd.album : '***ARTIST NOT FOUND***' }
+		albums
+	end
 end

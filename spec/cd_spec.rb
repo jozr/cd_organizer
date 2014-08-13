@@ -22,4 +22,14 @@ describe Cd do
 	it 'clears all contacts' do
 		Cd.clear.should eq []
 	end
+
+	it 'returns albums by artist' do
+      test_cd = Cd.new 'Ziggy Stardust', 'David Bowie'
+      test_cd.save
+      test_cd_two = Cd.new 'Devil Without a Cause', 'Kid Rock'
+      test_cd_two.save
+      test_cd_three = Cd.new 'The History of Rock', 'Kid Rock'
+      test_cd_three.save
+      Cd.search_by_artist('Kid Rock').should eq ['Devil Without a Cause', 'The History of Rock']
+    end
 end
