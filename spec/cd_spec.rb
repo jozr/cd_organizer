@@ -42,4 +42,14 @@ describe Cd do
       test_cd_three.save
       Cd.search_by_album('Watch the Throne').should eq ['Kanye West', 'Jay-Z']
     end
+
+    it 'returns all unique artists in the cd collection' do
+      test_cd_one = Cd.new 'Thriller', 'Michael Jackson'
+      test_cd_one.save
+      test_cd_two = Cd.new 'Black and White', 'Michael Jackson'
+      test_cd_two.save
+      test_cd_three = Cd.new 'Chronic', 'Dr. Dre'
+      test_cd_three.save
+      Cd.list_all_artists.should eq ['Dr. Dre', 'Michael Jackson']
+    end
 end

@@ -31,4 +31,10 @@ class Cd
 		self.all.each { |cd| cd.album == album_name ? artists << cd.artist : '***ALBUM NOT FOUND***' }
 		artists
 	end
+
+	def self.list_all_artists
+	    artists = []
+	    self.all.each { |cd| artists << cd.artist }
+	    artists.uniq.sort
+	end
 end
